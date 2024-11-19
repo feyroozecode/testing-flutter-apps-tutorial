@@ -1,4 +1,4 @@
-# Flutter Testing Tutorial
+# Flutter Testing Apps by ResoCoder originaly
 
 ### Learn from :point_right: [this post](https://resocoder.com/flutter-testing-pt1) :point_left:.
 
