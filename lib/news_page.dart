@@ -3,7 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:flutter_testing_tutorial/article_page.dart';
 import 'package:flutter_testing_tutorial/news_change_notifier.dart';
 
+/// A page that displays a list of news articles.
 class NewsPage extends StatefulWidget {
+  /// Creates a [NewsPage].
   const NewsPage({Key? key}) : super(key: key);
 
   @override
@@ -15,6 +17,7 @@ class _NewsPageState extends State<NewsPage> {
   @override
   void initState() {
     super.initState();
+    // Fetch articles when the widget is initialized.
     Future.microtask(
       () => context.read<NewsChangeNotifier>().getArticles(),
     );
@@ -22,6 +25,7 @@ class _NewsPageState extends State<NewsPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Build the UI for the NewsPage.
     return Scaffold(
       appBar: AppBar(
         title: const Text('News'),
@@ -29,6 +33,7 @@ class _NewsPageState extends State<NewsPage> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () {
+              // Refresh articles when the refresh button is pressed.
               context.read<NewsChangeNotifier>().getArticles();
             },
           ),
@@ -51,6 +56,7 @@ class _NewsPageState extends State<NewsPage> {
                 elevation: 2,
                 child: InkWell(
                   onTap: () {
+                    // Navigate to the ArticlePage when an article is tapped.
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (_) => ArticlePage(article: article),
