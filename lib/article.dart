@@ -1,3 +1,4 @@
+/// A simple Article class with a title and content.
 class Article {
   final String title;
   final String content;
@@ -7,6 +8,7 @@ class Article {
     required this.content,
   });
 
+  /// Creates a copy of this article with the given fields replaced with the new values.
   Article copyWith({
     String? title,
     String? content,
@@ -20,6 +22,7 @@ class Article {
   @override
   String toString() => 'Article(title: $title, content: $content)';
 
+  /// Compares two articles based on their titles and contents.
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;

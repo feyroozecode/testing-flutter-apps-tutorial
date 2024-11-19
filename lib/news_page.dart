@@ -11,6 +11,7 @@ class NewsPage extends StatefulWidget {
 }
 
 class _NewsPageState extends State<NewsPage> {
+  
   @override
   void initState() {
     super.initState();
@@ -24,6 +25,14 @@ class _NewsPageState extends State<NewsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('News'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              context.read<NewsChangeNotifier>().getArticles();
+            },
+          ),
+        ],
       ),
       body: Consumer<NewsChangeNotifier>(
         builder: (context, notifier, child) {
