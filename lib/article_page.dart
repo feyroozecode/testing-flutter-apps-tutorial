@@ -19,6 +19,9 @@ class ArticlePage extends StatelessWidget {
     // Get the media query data for responsive design
     final mq = MediaQuery.of(context);
     return Scaffold(
+      appBar: AppBar(
+        title: Text(article.title),
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(
           top: mq.padding.top,
@@ -29,12 +32,7 @@ class ArticlePage extends StatelessWidget {
         child: Column(
           children: [
             // Display the article title
-            Text(
-              article.title,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 8),
-            // Display the article content
+                        // Display the article content
             Text(article.content),
           ],
         ),
